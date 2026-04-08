@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Bubub 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Comic Sans MS';
+  text-align:center;
+  background: linear-gradient(135deg,#ff9ec4,#ffd6ec);
+  overflow:hidden;
+  color:white;
+}
+
+h1{
+  margin-top:40px;
+  font-size:40px;
+  animation: fadeIn 3s;
+}
+
+p{
+  font-size:20px;
+  padding:20px;
+  animation: fadeIn 4s;
+}
+
+button{
+  padding:15px 30px;
+  font-size:20px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff4fa3;
+  cursor:pointer;
+  box-shadow:0 0 15px pink;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.1);
+}
+
+#surprise{
+  display:none;
+  margin-top:20px;
+}
+
+#namaBig{
+  font-size:60px;
+  margin-top:20px;
+  display:none;
+  animation: zoom 2s infinite alternate;
+}
+
+@keyframes zoom{
+  from{transform:scale(1);}
+  to{transform:scale(1.2);}
+}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* hearts */
+.heart{
+  position:absolute;
+  color:red;
+  font-size:20px;
+  animation: fall 6s linear infinite;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10vh);}
+  100%{transform:translateY(110vh);}
+}
+
+/* balloons */
+.balloon{
+  position:absolute;
+  bottom:-100px;
+  font-size:30px;
+  animation: up 10s linear infinite;
+}
+
+@keyframes up{
+  from{transform:translateY(0);}
+  to{transform:translateY(-120vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday Bububbbb 🎂💖</h1>
+
+<p>
+Hai bubub ❤️<br><br>
+Happy birthday yaa! Semoga hari kamu seindah senyum kamu 🤍  
+Thank you sudah hadir di hidup aku.  
+You are my favorite person, my safe place, my happiness 🫶  
+Tetap kuat yaa jalanin semuanya, aku selalu bangga sama kamu.  
+I love you always 💕
+</p>
+
+<button onclick="mulai()">Klik Surprise 🎁</button>
+
+<div id="surprise">
+  <h2>Kamu adalah favoritku nomor</h2>
+  <h2>1,2,3,4,5,6 semuanya kamu 💖</h2>
+</div>
+
+<div id="namaBig">RAHTAAA 💖</div>
+
+<!-- MUSIC -->
+<audio id="musik" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function mulai(){
+  document.getElementById("surprise").style.display="block";
+  document.getElementById("namaBig").style.display="block";
+  document.getElementById("musik").play();
+}
+
+/* hearts generator */
+setInterval(function(){
+  var heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="💖";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+10)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+},300);
+
+/* balloons generator */
+setInterval(function(){
+  var b=document.createElement("div");
+  b.className="balloon";
+  b.innerHTML="🎈";
+  b.style.left=Math.random()*100+"vw";
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),10000);
+},1200);
+</script>
+
+</body>
+</html>
